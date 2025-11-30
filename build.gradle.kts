@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "kj455"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -33,7 +33,19 @@ intellijPlatform {
         }
 
         changeNotes = """
-            Initial version
+            <h3>0.0.1</h3>
+            <ul>
+                <li>Initial release</li>
+                <li>Select inside parentheses () - cmd+k, (</li>
+                <li>Select inside square brackets [] - cmd+k, [</li>
+                <li>Select inside curly brackets {} - cmd+k, {</li>
+                <li>Select inside single quotes '' - cmd+k, '</li>
+                <li>Select inside double quotes "" - cmd+k, "</li>
+                <li>Select inside backticks `` - cmd+k, `</li>
+                <li>Auto-expand to include surrounding brackets/quotes on second press</li>
+                <li>Support for nested brackets</li>
+                <li>Multiline support for backticks</li>
+            </ul>
         """.trimIndent()
     }
 }

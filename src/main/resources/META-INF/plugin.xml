@@ -5,16 +5,27 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
-    <name>Jetbrains-quick-select</name>
+    <name>Quick Select</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor url="https://github.com/kj455">kj455</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
+        Quick and simple text selection plugin for JetBrains IDEs.<br>
+        Jump to select between quotes, brackets, and more with keyboard shortcuts.<br>
+        <br>
+        <strong>Features:</strong>
+        <ul>
+            <li>Select inside parentheses () - cmd+k, (</li>
+            <li>Select inside square brackets [] - cmd+k, [</li>
+            <li>Select inside curly brackets {} - cmd+k, {</li>
+            <li>Select inside single quotes '' - cmd+k, '</li>
+            <li>Select inside double quotes "" - cmd+k, "</li>
+            <li>Select inside backticks `` - cmd+k, `</li>
+        </ul>
+        <strong>Auto-expand:</strong> Press the same shortcut twice to include the surrounding brackets/quotes.
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -26,4 +37,66 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+
+    <actions>
+        <!-- Parenthesis () - cmd+k, shift+9 -->
+        <action id="kj455.jetbrainsquickselect.SelectParenthesisAction"
+                class="kj455.jetbrainsquickselect.SelectParenthesisAction"
+                text="Quick Select: Select Inside Parenthesis"
+                description="Select text inside parentheses">
+            <keyboard-shortcut keymap="$default" first-keystroke="meta K" second-keystroke="shift 9"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta K" second-keystroke="shift 9"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta K" second-keystroke="shift 9"/>
+        </action>
+
+        <!-- Square Brackets [] - cmd+k, [ -->
+        <action id="kj455.jetbrainsquickselect.SelectSquareBracketsAction"
+                class="kj455.jetbrainsquickselect.SelectSquareBracketsAction"
+                text="Quick Select: Select Inside Square Brackets"
+                description="Select text inside square brackets">
+            <keyboard-shortcut keymap="$default" first-keystroke="meta K" second-keystroke="OPEN_BRACKET"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta K" second-keystroke="OPEN_BRACKET"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta K" second-keystroke="OPEN_BRACKET"/>
+        </action>
+
+        <!-- Curly Brackets {} - cmd+k, shift+[ -->
+        <action id="kj455.jetbrainsquickselect.SelectCurlyBracketsAction"
+                class="kj455.jetbrainsquickselect.SelectCurlyBracketsAction"
+                text="Quick Select: Select Inside Curly Brackets"
+                description="Select text inside curly brackets">
+            <keyboard-shortcut keymap="$default" first-keystroke="meta K" second-keystroke="shift OPEN_BRACKET"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta K" second-keystroke="shift OPEN_BRACKET"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta K" second-keystroke="shift OPEN_BRACKET"/>
+        </action>
+
+        <!-- Single Quote '' - cmd+k, ' -->
+        <action id="kj455.jetbrainsquickselect.SelectSingleQuoteAction"
+                class="kj455.jetbrainsquickselect.SelectSingleQuoteAction"
+                text="Quick Select: Select Inside Single Quote"
+                description="Select text inside single quotes">
+            <keyboard-shortcut keymap="$default" first-keystroke="meta K" second-keystroke="QUOTE"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta K" second-keystroke="QUOTE"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta K" second-keystroke="QUOTE"/>
+        </action>
+
+        <!-- Double Quote "" - cmd+k, shift+' -->
+        <action id="kj455.jetbrainsquickselect.SelectDoubleQuoteAction"
+                class="kj455.jetbrainsquickselect.SelectDoubleQuoteAction"
+                text="Quick Select: Select Inside Double Quote"
+                description="Select text inside double quotes">
+            <keyboard-shortcut keymap="$default" first-keystroke="meta K" second-keystroke="shift QUOTE"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta K" second-keystroke="shift QUOTE"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta K" second-keystroke="shift QUOTE"/>
+        </action>
+
+        <!-- Backtick `` - cmd+k, ` -->
+        <action id="kj455.jetbrainsquickselect.SelectBackTickAction"
+                class="kj455.jetbrainsquickselect.SelectBackTickAction"
+                text="Quick Select: Select Inside Backtick"
+                description="Select text inside backticks">
+            <keyboard-shortcut keymap="$default" first-keystroke="meta K" second-keystroke="BACK_QUOTE"/>
+            <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta K" second-keystroke="BACK_QUOTE"/>
+            <keyboard-shortcut keymap="Mac OS X 10.5+" first-keystroke="meta K" second-keystroke="BACK_QUOTE"/>
+        </action>
+    </actions>
 </idea-plugin>
